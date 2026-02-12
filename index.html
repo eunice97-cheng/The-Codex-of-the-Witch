@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Arcana Studio Labs | The Codex of the Witch</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -206,7 +206,6 @@
             background: #d97706;
         }
 
-        /* CODEX QUOTE BOX - SMALLER FONT */
         .codex-quote-box {
             background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(245, 158, 11, 0.15) 100%);
             border-left: 4px solid #f59e0b;
@@ -237,7 +236,6 @@
             margin-top: 0.5rem;
         }
 
-        /* LOGO - ENLARGED TO 200px */
         .logo-image {
             width: 200px;
             height: 200px;
@@ -256,26 +254,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .logo-placeholder {
-            color: #f59e0b;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            text-align: center;
-        }
-
-        .logo-placeholder i {
-            font-size: 5rem !important;
-            margin-bottom: 0.75rem;
-            color: #f59e0b;
-            text-shadow: 0 0 30px rgba(245,158,11,0.6);
-        }
-
-        .logo-placeholder div {
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
         }
 
         .comfort-quote-box {
@@ -334,6 +312,23 @@
             color: #e2e8f0;
             padding: 0.5rem;
         }
+        
+        @media (max-width: 768px) {
+            .prophecy-tab {
+                padding: 12px 8px !important;
+                font-size: 14px !important;
+                flex: 1 1 auto;
+                justify-content: center;
+            }
+            
+            .grid-cols-3.gap-2 {
+                gap: 6px;
+            }
+            
+            select, input {
+                font-size: 16px !important;
+            }
+        }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -341,29 +336,22 @@
     <div class="twinkling"></div>
 
     <header class="max-w-6xl mx-auto text-center mb-8 fade-in">
-        <!-- 1. ARCANA STUDIO LABS -->
         <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-3 drop-shadow-lg codex-title" style="text-shadow: 0 0 20px rgba(245,158,11,0.3);">
             ARCANA STUDIO LABS
         </h1>
         
-        <!-- 2. The Codex of the Witch -->
         <div class="text-amber-400 text-sm md:text-base font-serif italic mb-3 tracking-wide">The Codex of the Witch</div>
         
-        <!-- 3. The Celestial Alchemy — Cartography of the Soul -->
         <div class="celestial-divider">
             <i class="fas fa-star"></i>
             <span class="text-purple-400 text-xs">THE CELESTIAL ALCHEMY — CARTOGRAPHY OF THE SOUL</span>
             <i class="fas fa-star"></i>
         </div>
         
-        <!-- 4. Logo - ENLARGED to 200px -->
         <div class="logo-image">
-            <!-- YOUR LOGO HERE - REPLACE THIS DIV WITH IMG TAG -->
             <img src="logo.jpg" alt="Arcana Studio Labs Logo">
-            <!-- REPLACE THE ABOVE WITH: <img src="your-logo.jpg" alt="Arcana Studio Labs Logo"> -->
         </div>
         
-        <!-- 5. Codex Quote - FONT REDUCED to 0.9rem -->
         <div class="codex-quote-box">
             <div class="codex-quote-text">
                 "Less than half of you is given at birth. The greater half is forged."
@@ -387,16 +375,38 @@
                         <input type="text" id="name" placeholder="Enter your complete name" value="" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 transition text-white placeholder-slate-600">
                     </div>
                     
-                    <!-- Birth Date & Time -->
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="text-[10px] uppercase tracking-widest text-slate-400">Birth Date</label>
-                            <input type="date" id="dob" value="" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 text-sm outline-none focus:border-amber-500 text-white [color-scheme:dark]">
+                    <!-- Birth Date - MOBILE FRIENDLY DROPDOWNS (FIXED) -->
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest text-slate-400">Birth Date</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <select id="dob-month" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                                <option value="" disabled selected>Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <select id="dob-day" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                                <option value="" disabled selected>Day</option>
+                            </select>
+                            <select id="dob-year" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                                <option value="" disabled selected>Year</option>
+                            </select>
                         </div>
-                        <div>
-                            <label class="text-[10px] uppercase tracking-widest text-slate-400">Birth Time</label>
-                            <input type="time" id="tob" value="" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 text-sm outline-none focus:border-amber-500 text-white [color-scheme:dark]">
-                        </div>
+                    </div>
+                    
+                    <!-- Birth Time -->
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest text-slate-400">Birth Time</label>
+                        <input type="time" id="tob" value="" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 text-sm outline-none focus:border-amber-500 text-white [color-scheme:dark]">
                     </div>
                     
                     <!-- Gender & Relationship -->
@@ -424,7 +434,7 @@
                         </div>
                     </div>
 
-                    <!-- COMPLETE COUNTRY LIST -->
+                    <!-- COMPLETE COUNTRY LIST (FULL) -->
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Birth Country</label>
                         <select id="country" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
@@ -627,7 +637,7 @@
                         </select>
                     </div>
 
-                    <!-- COMPLETE TIMEZONE LIST -->
+                    <!-- COMPLETE TIMEZONE LIST (FULL) -->
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Timezone</label>
                         <select id="timezone" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
@@ -807,23 +817,23 @@
                 </div>
             </div>
 
-            <!-- PROPHECY TABS & PERSONAL YEAR - LOVE TAB 100% FIXED -->
+            <!-- PROPHECY TABS & PERSONAL YEAR - LOVE TAB 100% FIXED (CLICK WHOLE TAB) -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="glass-panel p-6 rounded-3xl md:col-span-2 relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl"></div>
                     
-                    <!-- PROPHECY TABS - LOVE TAB NOW 100% WORKING -->
+                    <!-- PROPHECY TABS - ENTIRE TAB IS CLICKABLE, NOT JUST ICON -->
                     <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-800 pb-4">
-                        <button type="button" onclick="switchProphecyTab('wealth')" id="tab-wealth" class="prophecy-tab active px-4 py-2 rounded-lg text-sm flex items-center gap-2 text-amber-400 border border-amber-500/30">
+                        <button type="button" onclick="switchProphecyTab('wealth')" id="tab-wealth" class="prophecy-tab active px-4 py-2 rounded-lg text-sm flex items-center justify-center gap-2 text-amber-400 border border-amber-500/30">
                             <i class="fas fa-coins"></i> Wealth
                         </button>
-                        <button type="button" onclick="switchProphecyTab('career')" id="tab-career" class="prophecy-tab px-4 py-2 rounded-lg text-sm flex items-center gap-2 text-slate-400 border border-transparent">
+                        <button type="button" onclick="switchProphecyTab('career')" id="tab-career" class="prophecy-tab px-4 py-2 rounded-lg text-sm flex items-center justify-center gap-2 text-slate-400 border border-transparent">
                             <i class="fas fa-briefcase"></i> Career
                         </button>
-                        <button type="button" onclick="switchProphecyTab('health')" id="tab-health" class="prophecy-tab px-4 py-2 rounded-lg text-sm flex items-center gap-2 text-slate-400 border border-transparent">
+                        <button type="button" onclick="switchProphecyTab('health')" id="tab-health" class="prophecy-tab px-4 py-2 rounded-lg text-sm flex items-center justify-center gap-2 text-slate-400 border border-transparent">
                             <i class="fas fa-heartbeat"></i> Health
                         </button>
-                        <button type="button" onclick="switchProphecyTab('love')" id="tab-love" class="prophecy-tab px-4 py-2 rounded-lg text-sm flex items-center gap-2 text-slate-400 border border-transparent">
+                        <button type="button" onclick="switchProphecyTab('love')" id="tab-love" class="prophecy-tab px-4 py-2 rounded-lg text-sm flex items-center justify-center gap-2 text-slate-400 border border-transparent">
                             <i class="fas fa-heart"></i> Love
                         </button>
                     </div>
@@ -921,7 +931,7 @@
     <script>
         // ============================================
         // ARCANA STUDIO LABS - THE CODEX OF THE WITCH
-        // LOVE TAB 100% FIXED - COMPLETE VERSION
+        // COMPLETE VERSION - MOBILE DATE FIX + LOVE TAB FIX
         // ============================================
         
         // --- CONSTANTS & DATA LIBRARIES ---
@@ -977,8 +987,7 @@
         let currentProphecyTab = 'wealth';
         let propheciesData = null;
 
-        // --- GLOBAL TAB SWITCHING FUNCTION - CRITICAL FOR LOVE TAB ---
-        // DEFINED ONCE AND MADE GLOBAL
+        // --- GLOBAL TAB SWITCHING FUNCTION - WHOLE TAB CLICKABLE ---
         window.switchProphecyTab = function(tab) {
             console.log("Tab clicked:", tab);
             
@@ -1006,13 +1015,12 @@
             updateProphecyDisplay();
         };
 
-        // CREATE GLOBAL FUNCTION REFERENCE
-        const switchProphecyTab = window.switchProphecyTab;
-
-        // --- FORM VALIDATION ---
+        // --- FORM VALIDATION - UPDATED FOR DROPDOWNS ---
         function validateForm() {
             const name = document.getElementById('name').value.trim();
-            const dob = document.getElementById('dob').value;
+            const dobMonth = document.getElementById('dob-month').value;
+            const dobDay = document.getElementById('dob-day').value;
+            const dobYear = document.getElementById('dob-year').value;
             const tob = document.getElementById('tob').value;
             const gender = document.getElementById('gender').value;
             const relationship = document.getElementById('relationship').value;
@@ -1020,7 +1028,7 @@
             const timezone = document.getElementById('timezone').value;
             const career = document.getElementById('career').value;
             
-            const isComplete = name && dob && tob && gender && relationship && country && timezone && career;
+            const isComplete = name && dobMonth && dobDay && dobYear && tob && gender && relationship && country && timezone && career;
             
             const invokeBtn = document.getElementById('invokeBtn');
             const formWarning = document.getElementById('form-warning');
@@ -1046,9 +1054,45 @@
 
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', function() {
-            console.log("Arcana Studio Labs initialized - Love tab fix applied");
+            console.log("Arcana Studio Labs initialized - Mobile date fix + Love tab fix");
             
-            const inputs = ['name', 'dob', 'tob', 'gender', 'relationship', 'country', 'timezone', 'career'];
+            // POPULATE YEAR DROPDOWN (100 years back)
+            const yearSelect = document.getElementById('dob-year');
+            const currentYear = new Date().getFullYear();
+            for (let year = currentYear; year >= currentYear - 100; year--) {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearSelect.appendChild(option);
+            }
+            
+            // POPULATE DAYS BASED ON MONTH/YEAR
+            function updateDays() {
+                const month = parseInt(document.getElementById('dob-month').value);
+                const year = parseInt(document.getElementById('dob-year').value);
+                const daySelect = document.getElementById('dob-day');
+                
+                if (!month || !year) {
+                    daySelect.innerHTML = '<option value="" disabled selected>Day</option>';
+                    return;
+                }
+                
+                const daysInMonth = new Date(year, month, 0).getDate();
+                daySelect.innerHTML = '<option value="" disabled selected>Day</option>';
+                
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const option = document.createElement('option');
+                    option.value = day;
+                    option.textContent = day;
+                    daySelect.appendChild(option);
+                }
+            }
+            
+            document.getElementById('dob-month').addEventListener('change', updateDays);
+            document.getElementById('dob-year').addEventListener('change', updateDays);
+            
+            // FORM VALIDATION LISTENERS
+            const inputs = ['name', 'dob-month', 'dob-day', 'dob-year', 'tob', 'gender', 'relationship', 'country', 'timezone', 'career'];
             inputs.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) {
@@ -1065,7 +1109,7 @@
             }, 100);
         });
 
-        // --- MAIN CALCULATION ENGINE ---
+        // --- MAIN CALCULATION ENGINE - UPDATED FOR DATE DROPDOWNS ---
         window.calculateOracle = function() {
             if (!validateForm()) {
                 alert("Please complete all fields to forge your cosmic identity.");
@@ -1074,7 +1118,13 @@
 
             const invokeBtn = document.getElementById('invokeBtn');
             const nameInput = document.getElementById('name').value.trim();
-            const dobInput = document.getElementById('dob').value;
+            
+            // GET DATE FROM DROPDOWNS
+            const dobMonth = document.getElementById('dob-month').value.padStart(2, '0');
+            const dobDay = document.getElementById('dob-day').value.padStart(2, '0');
+            const dobYear = document.getElementById('dob-year').value;
+            const dobInput = `${dobYear}-${dobMonth}-${dobDay}`;
+            
             const tobInput = document.getElementById('tob').value;
             const gender = document.getElementById('gender').value;
             const relationship = document.getElementById('relationship').value;
@@ -1156,7 +1206,7 @@
                 renderStarRating(fortuneScore);
                 renderComfortQuote(fortuneScore);
 
-                // PROPHECIES - MUST BE SET BEFORE TAB SWITCHING
+                // PROPHECIES
                 propheciesData = generateAllProphecies(seed, py, easternSign, luckyDir, relationship, career, kua);
                 
                 // Set initial prophecy display
@@ -1192,6 +1242,17 @@
                         behavior: 'smooth' 
                     });
                 }, 100);
+                
+                // Save to localStorage
+                saveToLocalStorage({
+                    name: nameInput,
+                    dob: dobInput,
+                    tob: tobInput,
+                    gender: gender,
+                    relationship: relationship,
+                    timezone: timezone,
+                    career: career
+                });
                 
             } catch (error) {
                 console.error("Calculation error:", error);
@@ -1832,7 +1893,18 @@
                 if (saved) {
                     const data = JSON.parse(saved);
                     if (data.name) document.getElementById('name').value = data.name;
-                    if (data.dob) document.getElementById('dob').value = data.dob;
+                    if (data.dob) {
+                        const [year, month, day] = data.dob.split('-');
+                        document.getElementById('dob-year').value = parseInt(year);
+                        const yearEvent = new Event('change');
+                        document.getElementById('dob-year').dispatchEvent(yearEvent);
+                        document.getElementById('dob-month').value = parseInt(month);
+                        const monthEvent = new Event('change');
+                        document.getElementById('dob-month').dispatchEvent(monthEvent);
+                        setTimeout(() => {
+                            document.getElementById('dob-day').value = parseInt(day);
+                        }, 50);
+                    }
                     if (data.tob) document.getElementById('tob').value = data.tob;
                     if (data.gender) document.getElementById('gender').value = data.gender;
                     if (data.relationship) document.getElementById('relationship').value = data.relationship;
