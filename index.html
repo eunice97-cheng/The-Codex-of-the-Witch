@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Arcana Studio Labs | The Codex of the Witch</title>
-    
+
     <!-- Tailwind & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="p-4 md:p-8">
     <div class="stars"></div>
     <div class="twinkling"></div>
 
     <header class="max-w-6xl mx-auto text-center mb-8 fade-in">
-        <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-3 drop-shadow-lg codex-title" style="text-shadow: 0 0 20px rgba(245,158,11,0.3);">
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-3 drop-shadow-lg codex-title"
+            style="text-shadow: 0 0 20px rgba(245,158,11,0.3);">
             ARCANA STUDIO LABS
         </h1>
-        
-        <div class="text-amber-400 text-sm md:text-base font-serif italic mb-3 tracking-wide">The Codex of the Witch</div>
-        
+
+        <div class="text-amber-400 text-sm md:text-base font-serif italic mb-3 tracking-wide">The Codex of the Witch
+        </div>
+
         <div class="celestial-divider">
             <i class="fas fa-star"></i>
             <span class="text-purple-400 text-xs">THE CELESTIAL ALCHEMY — CARTOGRAPHY OF THE SOUL</span>
             <i class="fas fa-star"></i>
         </div>
-        
+
         <div class="logo-image">
             <img src="logo.jpg" alt="Arcana Studio Labs Logo">
         </div>
-        
+
         <div class="codex-quote-box">
             <div class="codex-quote-text">
                 "Less than half of you is given at birth. The greater half is forged."
@@ -44,7 +48,7 @@
     </header>
 
     <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
+
         <!-- LEFT PANEL - INPUT SECTION -->
         <section class="lg:col-span-4 space-y-6">
             <div class="glass-panel p-8 rounded-3xl border-l-4 border-amber-500 fade-in">
@@ -53,17 +57,20 @@
                     <!-- Full Name -->
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Full Name</label>
-                        <input type="text" id="name" placeholder="Enter your complete name" value="" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 transition text-white placeholder-slate-600">
+                        <input type="text" id="name" placeholder="Enter your complete name" value=""
+                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 transition text-white placeholder-slate-600">
                     </div>
-                    
+
                     <!-- Birth Date - MOBILE FRIENDLY DROPDOWNS -->
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Birth Date</label>
                         <div class="grid grid-cols-3 gap-2">
-                            <select id="dob-year" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                            <select id="dob-year"
+                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
                                 <option value="" disabled selected>Year</option>
                             </select>
-                            <select id="dob-month" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                            <select id="dob-month"
+                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
                                 <option value="" disabled selected>Month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -78,23 +85,26 @@
                                 <option value="11">November</option>
                                 <option value="12">December</option>
                             </select>
-                            <select id="dob-day" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                            <select id="dob-day"
+                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
                                 <option value="" disabled selected>Day</option>
-                            </select>  
+                            </select>
                         </div>
                     </div>
-                    
+
                     <!-- Birth Time -->
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Birth Time</label>
-                        <input type="time" id="tob" value="" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 text-sm outline-none focus:border-amber-500 text-white [color-scheme:dark]">
+                        <input type="time" id="tob" value=""
+                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 text-sm outline-none focus:border-amber-500 text-white [color-scheme:dark]">
                     </div>
-                    
+
                     <!-- Gender & Relationship -->
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="text-[10px] uppercase tracking-widest text-slate-400">Gender</label>
-                            <select id="gender" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white">
+                            <select id="gender"
+                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white">
                                 <option value="" disabled selected>Select gender</option>
                                 <option value="male">Male (Yang)</option>
                                 <option value="female">Female (Yin)</option>
@@ -102,7 +112,8 @@
                         </div>
                         <div>
                             <label class="text-[10px] uppercase tracking-widest text-slate-400">Relationship</label>
-                            <select id="relationship" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white">
+                            <select id="relationship"
+                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white">
                                 <option value="" disabled selected>Select status</option>
                                 <option value="single">Single</option>
                                 <option value="dating">Dating</option>
@@ -118,7 +129,8 @@
                     <!-- Birth Country -->
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Birth Country</label>
-                        <select id="country" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                        <select id="country"
+                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
                             <option value="" disabled selected>Select your birth country</option>
                             <option value="AF">Afghanistan</option>
                             <option value="AL">Albania</option>
@@ -321,7 +333,8 @@
                     <!-- Timezone -->
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Timezone</label>
-                        <select id="timezone" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                        <select id="timezone"
+                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
                             <option value="" disabled selected>Select your timezone</option>
                             <optgroup label="UTC -12:00 to -09:00">
                                 <option value="-12">(UTC-12:00) Baker Island, Howland Island</option>
@@ -383,7 +396,8 @@
                     <!-- Career Field -->
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Career Field</label>
-                        <select id="career" class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white">
+                        <select id="career"
+                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white">
                             <option value="" disabled selected>Select your career field</option>
                             <option value="Technology">Technology / IT</option>
                             <option value="Finance">Finance / Banking</option>
@@ -411,77 +425,134 @@
                         </select>
                     </div>
 
-                    <button onclick="calculateOracle()" id="invokeBtn" class="w-full py-4 mt-4 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-bold rounded-xl transition-all shadow-lg shadow-amber-900/30 hover:shadow-amber-600/40 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 opacity-50 cursor-not-allowed" disabled>
+                    <button onclick="calculateOracle()" id="invokeBtn"
+                        class="w-full py-4 mt-4 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-bold rounded-xl transition-all shadow-lg shadow-amber-900/30 hover:shadow-amber-600/40 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
+                        disabled>
                         <i class="fas fa-crystal-ball"></i>
                         <span>COMPLETE YOUR CELESTIAL IDENTITY</span>
                     </button>
-                    <p id="form-warning" class="text-[10px] text-amber-400/70 text-center mt-2">⚠️ All fields required to forge your reading</p>
+                    <p id="form-warning" class="text-[10px] text-amber-400/70 text-center mt-2">⚠️ All fields required
+                        to forge your reading</p>
                 </div>
             </div>
 
-            <!-- MOON PHASE WIDGET -->
-            <div id="moon-widget" class="glass-panel p-6 rounded-3xl text-center overflow-hidden relative fade-in opacity-50">
-                <div class="absolute -right-4 -top-4 opacity-10">
-                    <i class="fas fa-moon text-8xl moon-ring text-amber-300"></i>
+            <!-- FIRE HORSE 2026 CARD + MOON PHASE WIDGET -->
+            <div class="space-y-6">
+                <!-- Fire Horse 2026 Card -->
+                <a href="https://fengshui-witch.arcanastudiolabs.com" target="_blank"
+                    class="block glass-panel p-6 rounded-3xl text-center overflow-hidden relative fade-in group hover:border-amber-500/50 transition-all duration-300">
+                    <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-horse text-8xl text-amber-500"></i>
+                    </div>
+
+                    <!-- Image Container -->
+                    <div
+                        class="w-40 h-40 mx-auto mb-4 rounded-full bg-gradient-to-br from-amber-500/20 to-red-600/20 border-2 border-amber-500/30 overflow-hidden flex items-center justify-center group-hover:border-amber-400 transition-all shadow-lg shadow-amber-900/30">
+                        <img src="firehorse.png" alt="Fire Horse 2026" class="w-full h-full object-cover"
+                            onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-horse text-7xl text-amber-500/70\'></i>';">
+                    </div>
+
+                    <!-- Title -->
+                    <h3 class="text-2xl font-serif text-white mb-2 tracking-wide">Fire Horse of 2026</h3>
+
+                    <!-- Description -->
+                    <p class="text-sm text-slate-400 mb-4">The year of intense passion, transformation, and unstoppable
+                        energy.</p>
+
+                    <!-- CTA Button -->
+                    <div
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-bold rounded-xl transition-all shadow-lg shadow-amber-900/30 group-hover:shadow-amber-600/40">
+                        <i class="fas fa-compass"></i>
+                        <span>Explore the Feng Shui</span>
+                        <i
+                            class="fas fa-arrow-right text-sm opacity-70 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+
+                    <!-- Subtle decorative element -->
+                    <div
+                        class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-0 group-hover:opacity-30 transition-opacity">
+                    </div>
+                </a>
+
+                <!-- Moon Phase Widget (unchanged but moved inside) -->
+                <div id="moon-widget"
+                    class="glass-panel p-6 rounded-3xl text-center overflow-hidden relative fade-in opacity-50">
+                    <div class="absolute -right-4 -top-4 opacity-10">
+                        <i class="fas fa-moon text-8xl moon-ring text-amber-300"></i>
+                    </div>
+                    <h3 class="text-slate-400 text-xs uppercase tracking-widest mb-2">🌙 Current Lunar Phase</h3>
+                    <div id="moon-display" class="text-2xl text-white font-serif italic">--</div>
+                    <div id="moon-illumination" class="text-xs text-amber-400/80 mt-1"></div>
+                    <p id="moon-desc" class="text-xs text-slate-500 mt-2">Awaiting your cosmic identity...</p>
                 </div>
-                <h3 class="text-slate-400 text-xs uppercase tracking-widest mb-2">🌙 Current Lunar Phase</h3>
-                <div id="moon-display" class="text-2xl text-white font-serif italic">--</div>
-                <div id="moon-illumination" class="text-xs text-amber-400/80 mt-1"></div>
-                <p id="moon-desc" class="text-xs text-slate-500 mt-2">Awaiting your cosmic identity...</p>
             </div>
         </section>
 
         <!-- RIGHT PANEL - RESULTS SECTION -->
         <section id="results" class="lg:col-span-8 hidden space-y-8 fade-in">
-            
+
             <!-- TOP GRID - ELEMENTS & QUICK STATS -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Wu Xing Elements -->
                 <div class="glass-panel p-6 rounded-3xl">
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-white text-sm uppercase tracking-widest border-b border-slate-800 pb-2 flex items-center gap-2">
+                        <h3
+                            class="text-white text-sm uppercase tracking-widest border-b border-slate-800 pb-2 flex items-center gap-2">
                             <i class="fas fa-circle text-[#10b981] text-xs"></i> Wu Xing (5 Elements)
                         </h3>
-                        <span id="dominant-element" class="text-[10px] px-2 py-1 bg-amber-500/20 rounded-full text-amber-400"></span>
+                        <span id="dominant-element"
+                            class="text-[10px] px-2 py-1 bg-amber-500/20 rounded-full text-amber-400"></span>
                     </div>
                     <div class="space-y-4" id="element-bars"></div>
                 </div>
-                
+
                 <!-- Quick Stats Grid -->
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center border-t-2 border-cyan-500 tooltip transition-all" data-tooltip="Your auspicious direction for 2026">
-                        <span class="text-[10px] text-slate-500 uppercase flex items-center gap-1"><i class="fas fa-compass text-cyan-400"></i> Lucky Direction</span>
+                    <div class="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center border-t-2 border-cyan-500 tooltip transition-all"
+                        data-tooltip="Your auspicious direction for 2026">
+                        <span class="text-[10px] text-slate-500 uppercase flex items-center gap-1"><i
+                                class="fas fa-compass text-cyan-400"></i> Lucky Direction</span>
                         <span id="res-dir" class="text-xl text-cyan-400 font-bold">--</span>
                     </div>
-                    <div class="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center border-t-2 border-rose-500 tooltip" data-tooltip="Stone that enhances your energy">
-                        <span class="text-[10px] text-slate-500 uppercase flex items-center gap-1"><i class="fas fa-gem text-rose-400"></i> Personal Gem</span>
+                    <div class="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center border-t-2 border-rose-500 tooltip"
+                        data-tooltip="Stone that enhances your energy">
+                        <span class="text-[10px] text-slate-500 uppercase flex items-center gap-1"><i
+                                class="fas fa-gem text-rose-400"></i> Personal Gem</span>
                         <span id="res-gem" class="text-sm text-rose-400 font-bold text-center">--</span>
                     </div>
-                    <div class="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center border-t-2 border-emerald-500 tooltip" data-tooltip="Your celestial number">
-                        <span class="text-[10px] text-slate-500 uppercase flex items-center gap-1"><i class="fas fa-hashtag text-emerald-400"></i> Lucky Number</span>
+                    <div class="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center border-t-2 border-emerald-500 tooltip"
+                        data-tooltip="Your celestial number">
+                        <span class="text-[10px] text-slate-500 uppercase flex items-center gap-1"><i
+                                class="fas fa-hashtag text-emerald-400"></i> Lucky Number</span>
                         <span id="res-num" class="text-2xl text-emerald-400 font-bold">--</span>
                     </div>
-                    <div class="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center border-t-2 border-purple-500 tooltip" data-tooltip="Colors that attract positive energy">
-                        <span class="text-[10px] text-slate-500 uppercase flex items-center gap-1"><i class="fas fa-palette text-purple-400"></i> Lucky Color</span>
+                    <div class="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center border-t-2 border-purple-500 tooltip"
+                        data-tooltip="Colors that attract positive energy">
+                        <span class="text-[10px] text-slate-500 uppercase flex items-center gap-1"><i
+                                class="fas fa-palette text-purple-400"></i> Lucky Color</span>
                         <span id="res-color" class="text-sm text-purple-400 font-bold text-center">--</span>
                     </div>
                     <!-- LUCKY ANIMAL ORNAMENT -->
-                    <div class="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center border-t-2 border-amber-500 tooltip col-span-2" data-tooltip="Protective charm for your animal sign">
-                        <span class="text-[10px] text-slate-500 uppercase flex items-center gap-1"><i class="fas fa-paw text-amber-400"></i> Lucky Animal Ornament</span>
+                    <div class="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center border-t-2 border-amber-500 tooltip col-span-2"
+                        data-tooltip="Protective charm for your animal sign">
+                        <span class="text-[10px] text-slate-500 uppercase flex items-center gap-1"><i
+                                class="fas fa-paw text-amber-400"></i> Lucky Animal Ornament</span>
                         <span id="res-animal" class="text-sm text-amber-400 font-bold text-center">--</span>
                     </div>
                 </div>
             </div>
 
             <!-- TODAY'S FORTUNE METER -->
-            <div class="glass-panel p-6 rounded-3xl bg-gradient-to-r from-indigo-900/30 to-purple-900/30 border border-amber-500/20">
+            <div
+                class="glass-panel p-6 rounded-3xl bg-gradient-to-r from-indigo-900/30 to-purple-900/30 border border-amber-500/20">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-white text-sm uppercase tracking-widest flex items-center gap-2">
                         <i class="fas fa-star text-amber-400"></i> Today's Fortune Meter
                     </h3>
-                    <span id="fortune-label" class="text-xs px-3 py-1 rounded-full bg-amber-500/20 text-amber-400">--</span>
+                    <span id="fortune-label"
+                        class="text-xs px-3 py-1 rounded-full bg-amber-500/20 text-amber-400">--</span>
                 </div>
-                
+
                 <div id="star-rating" class="star-rating mb-4">
                     <span id="star-1" class="star"><i class="far fa-star"></i></span>
                     <span id="star-2" class="star"><i class="far fa-star"></i></span>
@@ -489,7 +560,7 @@
                     <span id="star-4" class="star"><i class="far fa-star"></i></span>
                     <span id="star-5" class="star"><i class="far fa-star"></i></span>
                 </div>
-                
+
                 <div id="comfort-quote" class="comfort-quote-box mt-3">
                     <div class="comfort-quote-text"></div>
                     <div class="text-[10px] text-purple-400 mt-2 text-right uppercase tracking-wider">
@@ -501,47 +572,57 @@
             <!-- PROPHECY TABS & PERSONAL YEAR -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="glass-panel p-6 rounded-3xl md:col-span-2 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
-                    
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl pointer-events-none">
+                    </div>
+
                     <!-- PROPHECY TABS - ENTIRE TAB CLICKABLE -->
                     <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-800 pb-4">
-                        <button type="button" onclick="window.switchProphecyTab('wealth')" id="tab-wealth" class="prophecy-tab active px-4 py-2 rounded-lg text-sm flex items-center justify-center gap-2 text-amber-400 border border-amber-500/30">
+                        <button type="button" onclick="window.switchProphecyTab('wealth')" id="tab-wealth"
+                            class="prophecy-tab active px-4 py-2 rounded-lg text-sm flex items-center justify-center gap-2 text-amber-400 border border-amber-500/30">
                             <i class="fas fa-coins"></i> Wealth
                         </button>
-                        <button type="button" onclick="window.switchProphecyTab('career')" id="tab-career" class="prophecy-tab px-4 py-2 rounded-lg text-sm flex items-center justify-center gap-2 text-slate-400 border border-transparent">
+                        <button type="button" onclick="window.switchProphecyTab('career')" id="tab-career"
+                            class="prophecy-tab px-4 py-2 rounded-lg text-sm flex items-center justify-center gap-2 text-slate-400 border border-transparent">
                             <i class="fas fa-briefcase"></i> Career
                         </button>
-                        <button type="button" onclick="window.switchProphecyTab('health')" id="tab-health" class="prophecy-tab px-4 py-2 rounded-lg text-sm flex items-center justify-center gap-2 text-slate-400 border border-transparent">
+                        <button type="button" onclick="window.switchProphecyTab('health')" id="tab-health"
+                            class="prophecy-tab px-4 py-2 rounded-lg text-sm flex items-center justify-center gap-2 text-slate-400 border border-transparent">
                             <i class="fas fa-heartbeat"></i> Health
                         </button>
-                        <button type="button" onclick="window.switchProphecyTab('love')" id="tab-love" class="prophecy-tab px-4 py-2 rounded-lg text-sm flex items-center justify-center gap-2 text-slate-400 border border-transparent">
+                        <button type="button" onclick="window.switchProphecyTab('love')" id="tab-love"
+                            class="prophecy-tab px-4 py-2 rounded-lg text-sm flex items-center justify-center gap-2 text-slate-400 border border-transparent">
                             <i class="fas fa-heart"></i> Love
                         </button>
                     </div>
-                    
+
                     <div id="prophecy-content">
                         <h3 class="text-amber-400 font-serif text-2xl mb-2 italic flex items-center gap-2">
                             <i id="prophecy-icon" class="fas fa-coins"></i>
                             <span id="prophecy-title">Wealth Prophecy</span>
                         </h3>
-                        <p id="main-prophecy" class="text-slate-300 leading-relaxed text-lg">Your cosmic alignment is being forged...</p>
+                        <p id="main-prophecy" class="text-slate-300 leading-relaxed text-lg">Your cosmic alignment is
+                            being forged...</p>
                     </div>
-                    
+
                     <hr class="my-6 border-slate-800">
-                    
+
                     <div class="grid grid-cols-2 gap-4 text-sm">
                         <div>
-                            <span class="text-slate-500 block text-[10px] uppercase tracking-wider">🌞 Western Zodiac</span>
+                            <span class="text-slate-500 block text-[10px] uppercase tracking-wider">🌞 Western
+                                Zodiac</span>
                             <span id="res-western" class="text-white font-bold text-lg">--</span>
                         </div>
                         <div>
-                            <span class="text-slate-500 block text-[10px] uppercase tracking-wider">🐉 Eastern Pillar</span>
+                            <span class="text-slate-500 block text-[10px] uppercase tracking-wider">🐉 Eastern
+                                Pillar</span>
                             <span id="res-eastern" class="text-white font-bold text-lg">--</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="glass-panel p-6 rounded-3xl bg-gradient-to-br from-indigo-900/40 to-purple-900/40 border-t-2 border-indigo-500 flex flex-col justify-center">
+
+                <div
+                    class="glass-panel p-6 rounded-3xl bg-gradient-to-br from-indigo-900/40 to-purple-900/40 border-t-2 border-indigo-500 flex flex-col justify-center">
                     <h3 class="text-indigo-400 text-xs uppercase tracking-widest mb-2 flex items-center gap-1">
                         <i class="fas fa-star"></i> Personal Year 2026
                     </h3>
@@ -551,14 +632,16 @@
                     </div>
                     <p id="res-py-desc" class="text-xs text-slate-300">Your vibration for the 2026 cycle.</p>
                     <div id="res-py-element" class="text-[10px] mt-2 text-indigo-300"></div>
-                    <div id="relationship-display" class="text-[10px] mt-3 pt-2 border-t border-indigo-800/50 text-indigo-300"></div>
+                    <div id="relationship-display"
+                        class="text-[10px] mt-3 pt-2 border-t border-indigo-800/50 text-indigo-300"></div>
                 </div>
             </div>
 
             <!-- ORACLE'S COUNSEL -->
             <div class="glass-panel oracle-counsel-box rounded-3xl border border-amber-500/20">
                 <div class="flex items-start gap-4 mb-4">
-                    <div class="h-14 w-14 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500 flex-shrink-0">
+                    <div
+                        class="h-14 w-14 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500 flex-shrink-0">
                         <i class="fas fa-crown text-2xl"></i>
                     </div>
                     <div class="flex-1">
@@ -568,7 +651,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
                     <div class="bg-slate-800/50 p-4 rounded-xl text-center">
                         <span class="text-[9px] uppercase text-slate-500 tracking-wider">Year Pillar</span>
@@ -587,14 +670,15 @@
                         <span id="pillar-hour" class="block text-amber-400 font-bold text-base mt-1">--</span>
                     </div>
                 </div>
-                
+
                 <div id="lucky-hours-section" class="mt-6 pt-4 border-t border-slate-800">
                     <div class="flex items-center justify-between mb-4">
                         <h4 class="text-white text-sm uppercase tracking-wider flex items-center gap-2">
                             <i class="fas fa-hourglass-half text-amber-400"></i> Your Personal Lucky Hours
                         </h4>
                         <div class="flex items-center gap-2">
-                            <span id="timezone-display" class="text-[9px] bg-amber-500/20 px-2 py-1 rounded-full text-amber-400">
+                            <span id="timezone-display"
+                                class="text-[9px] bg-amber-500/20 px-2 py-1 rounded-full text-amber-400">
                                 <i class="fas fa-globe"></i> --
                             </span>
                         </div>
@@ -612,4 +696,5 @@
     <!-- JS -->
     <script src="script.js"></script>
 </body>
+
 </html>
