@@ -517,7 +517,7 @@ function generateAllProphecies(seed, py, animal, direction, relationship, career
 }
 
 // ========== LUCKY HOURS - FIXED ==========
-function calculateLuckyHours(py, day, kua, date, animalSign, timezone) {
+function calculateLuckyHours(py, day, kua, date, animalSign, timezone, gender) {
     const kuaHourMap = {
         1: { start: 7, end: 9, quality: "Excellent" },
         2: { start: 9, end: 11, quality: "Good" },
@@ -528,8 +528,14 @@ function calculateLuckyHours(py, day, kua, date, animalSign, timezone) {
         8: { start: 19, end: 21, quality: "Excellent" },
         9: { start: 21, end: 23, quality: "Good" }
     };
-    
-    const kuaHour = kuaHourMap[kua] || { start: 9, end: 11, quality: "Good" };
+
+    // Kua 5 remaps to 2 (male) or 8 (female), matching the main calculation logic
+    let effectiveKua = kua;
+    if (kua === 5) {
+        effectiveKua = gender === 'male' ? 2 : 8;
+    }
+
+    const kuaHour = kuaHourMap[effectiveKua] || { start: 9, end: 11, quality: "Good" };
     
     const now = new Date();
     const localOffset = -now.getTimezoneOffset() / 60;
@@ -559,25 +565,36 @@ function calculateLuckyHours(py, day, kua, date, animalSign, timezone) {
     };
     
     const animalHour = animalHours[animalSign] || [9, 11];
-    
+
+    function getPeriodLabel(localHour) {
+        if (localHour >= 5 && localHour < 12) return "🌅 Morning";
+        if (localHour >= 12 && localHour < 17) return "☀️ Afternoon";
+        if (localHour >= 17 && localHour < 21) return "🌆 Evening";
+        return "🌙 Night";
+    }
+
+    const kuaLocalStart = toLocalTime(kuaHour.start);
+    const pyLocalStart = toLocalTime(pyHour);
+    const animalLocalStart = toLocalTime(animalHour[0]);
+
     return [
         {
-            period: "🌅 Morning",
-            timeDisplay: `${formatTime(toLocalTime(kuaHour.start))} - ${formatTime(toLocalTime(kuaHour.end))}`,
+            period: getPeriodLabel(kuaLocalStart),
+            timeDisplay: `${formatTime(kuaLocalStart)} - ${formatTime(toLocalTime(kuaHour.end))}`,
             quality: kuaHour.quality,
-            element: getElementFromKua(kua),
+            element: getElementFromKua(effectiveKua),
             advice: "Best for important meetings and decisions"
         },
         {
-            period: "☀️ Afternoon",
-            timeDisplay: `${formatTime(toLocalTime(pyHour))} - ${formatTime(toLocalTime(pyHour + 2))}`,
+            period: getPeriodLabel(pyLocalStart),
+            timeDisplay: `${formatTime(pyLocalStart)} - ${formatTime(toLocalTime(pyHour + 2))}`,
             quality: py % 2 === 0 ? "Excellent" : "Good",
             element: EASTERN_ELEMENTS[(py - 1) % 5],
             advice: "Ideal for creative work and problem-solving"
         },
         {
-            period: "🌙 Evening",
-            timeDisplay: `${formatTime(toLocalTime(animalHour[0]))} - ${formatTime(toLocalTime(animalHour[0] + 2))}`,
+            period: getPeriodLabel(animalLocalStart),
+            timeDisplay: `${formatTime(animalLocalStart)} - ${formatTime(toLocalTime(animalHour[0] + 2))}`,
             quality: "Excellent",
             element: getAnimalElement(animalSign),
             advice: "Perfect for networking, social connections, and romance"
@@ -933,7 +950,7 @@ window.calculateOracle = function() {
         setElementText('res-advice', getShichenAdvice(currentHour));
 
         // Lucky Hours
-        const luckyHours = calculateLuckyHours(py, birthDay, kua, today, easternSign, timezone);
+        const luckyHours = calculateLuckyHours(py, birthDay, kua, today, easternSign, timezone, gender);
         renderLuckyHours(luckyHours, timezone);
 
         // Relationship Status
