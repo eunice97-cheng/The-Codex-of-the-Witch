@@ -407,8 +407,10 @@ function renderComfortQuote(score) {
     const quoteEl = document.getElementById('comfort-quote');
     if (!quoteEl) return;
     
-    const quoteData = COMFORT_QUOTES.find(q => score >= q.min && score <= q.max) || 
-                    COMFORT_QUOTES[Math.floor(Math.random() * COMFORT_QUOTES.length)];
+    const matching = COMFORT_QUOTES.filter(q => score >= q.min && score <= q.max);
+    const quoteData = matching.length > 0
+        ? matching[Math.floor(Math.random() * matching.length)]
+        : COMFORT_QUOTES[Math.floor(Math.random() * COMFORT_QUOTES.length)];
     
     const quoteDiv = quoteEl.querySelector('.comfort-quote-text');
     if (quoteDiv) {
@@ -763,7 +765,7 @@ function getShichenAdvice(hour) {
         { name: "Hai (Pig)", time: "21:00-23:00", advice: "Abundance mindset. Count blessings." }
     ];
     
-    const idx = Math.floor(hour / 2) % 12;
+    const idx = Math.floor(((hour + 1) % 24) / 2) % 12;
     const period = periods[idx];
     
     return `<span class="text-amber-400 font-medium">${period.name} Hour (${period.time})</span><br><span class="text-sm text-slate-300">${period.advice}</span>`;
@@ -834,6 +836,7 @@ function loadFromStorage() {
             if (data.gender) document.getElementById('gender').value = data.gender;
             if (data.relationship) document.getElementById('relationship').value = data.relationship;
             if (data.timezone) document.getElementById('timezone').value = data.timezone;
+            if (data.country) document.getElementById('country').value = data.country;
             if (data.career) document.getElementById('career').value = data.career;
         }
         validateForm();
@@ -979,6 +982,7 @@ window.calculateOracle = function() {
             tob: tobInput,
             gender: gender,
             relationship: relationship,
+            country: country,
             timezone: timezone,
             career: career
         });
