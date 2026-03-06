@@ -579,8 +579,9 @@ function calculateLuckyHours(py, day, kua, date, animalSign, timezone, gender) {
     const pyLocalStart = toLocalTime(pyHour);
     const animalLocalStart = toLocalTime(animalHour[0]);
 
-    return [
+    const slots = [
         {
+            startHour: kuaLocalStart,
             period: getPeriodLabel(kuaLocalStart),
             timeDisplay: `${formatTime(kuaLocalStart)} - ${formatTime(toLocalTime(kuaHour.end))}`,
             quality: kuaHour.quality,
@@ -588,6 +589,7 @@ function calculateLuckyHours(py, day, kua, date, animalSign, timezone, gender) {
             advice: "Best for important meetings and decisions"
         },
         {
+            startHour: pyLocalStart,
             period: getPeriodLabel(pyLocalStart),
             timeDisplay: `${formatTime(pyLocalStart)} - ${formatTime(toLocalTime(pyHour + 2))}`,
             quality: py % 2 === 0 ? "Excellent" : "Good",
@@ -595,6 +597,7 @@ function calculateLuckyHours(py, day, kua, date, animalSign, timezone, gender) {
             advice: "Ideal for creative work and problem-solving"
         },
         {
+            startHour: animalLocalStart,
             period: getPeriodLabel(animalLocalStart),
             timeDisplay: `${formatTime(animalLocalStart)} - ${formatTime(toLocalTime(animalHour[0] + 2))}`,
             quality: "Excellent",
@@ -602,6 +605,10 @@ function calculateLuckyHours(py, day, kua, date, animalSign, timezone, gender) {
             advice: "Perfect for networking, social connections, and romance"
         }
     ];
+
+    // Sort chronologically by local start hour (morning → night)
+    slots.sort((a, b) => a.startHour - b.startHour);
+    return slots;
 }
 
 function renderLuckyHours(hours, timezone) {
