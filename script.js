@@ -14,6 +14,7 @@ const ELEMENTS = [
 
 const ZODIAC_EASTERN = ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"];
 const EASTERN_ELEMENTS = ["Wood", "Fire", "Earth", "Metal", "Water"];
+const CURRENT_CYCLE_YEAR = new Date().getFullYear();
 
 const GEMSTONES = {
     1: "Garnet", 2: "Amethyst", 3: "Aquamarine", 4: "Diamond", 
@@ -75,6 +76,37 @@ function reduceToSingleDigit(num) {
         s = s.toString().split('').reduce((a, b) => parseInt(a || 0) + parseInt(b || 0), 0);
     }
     return s || 1;
+}
+
+function setCycleYearLabels() {
+    setElementText('cycle-year-card', CURRENT_CYCLE_YEAR);
+    setElementText('footer-cycle-year', CURRENT_CYCLE_YEAR);
+    setElementText('res-py-desc', `Your vibration for the ${CURRENT_CYCLE_YEAR} cycle.`);
+}
+
+function setResultsShell(name, py, easternSign, luckyDir, dominantElement, westernSign) {
+    setElementText('result-nameplate', `${name}'s forged reading`);
+    setElementText(
+        'result-snapshot',
+        `${dominantElement} leads your chart this cycle. ${westernSign} shapes your outer style, ${easternSign} anchors the inner current, and ${luckyDir} is your supportive direction.`
+    );
+    setElementText('result-badge-year', `Personal Year ${py}`);
+    setElementText('result-badge-sign', `Eastern Sign ${easternSign}`);
+    setElementText('result-badge-direction', `Lucky Direction ${luckyDir}`);
+}
+
+function showResultsState() {
+    document.body.classList.add('has-results');
+
+    const preview = document.getElementById('results-preview');
+    if (preview) {
+        preview.classList.add('hidden');
+    }
+
+    const results = document.getElementById('results');
+    if (results) {
+        results.classList.remove('hidden');
+    }
 }
 
 // ========== DATE DROPDOWN FIXES ==========
@@ -837,12 +869,13 @@ function loadFromStorage() {
                 // Set day after days are populated
                 setTimeout(() => {
                     document.getElementById('dob-day').value = parseInt(day);
+                    validateForm();
                 }, 50);
             }
             if (data.tob) document.getElementById('tob').value = data.tob;
             if (data.gender) document.getElementById('gender').value = data.gender;
             if (data.relationship) document.getElementById('relationship').value = data.relationship;
-            if (data.timezone) document.getElementById('timezone').value = data.timezone;
+            if (data.timezone !== undefined && data.timezone !== null) document.getElementById('timezone').value = data.timezone;
             if (data.country) document.getElementById('country').value = data.country;
             if (data.career) document.getElementById('career').value = data.career;
         }
@@ -870,6 +903,7 @@ window.calculateOracle = function() {
     const tobInput = document.getElementById('tob').value;
     const gender = document.getElementById('gender').value;
     const relationship = document.getElementById('relationship').value;
+    const country = document.getElementById('country').value;
     const timezone = parseFloat(document.getElementById('timezone').value) || 0;
     const career = document.getElementById('career').value;
 
@@ -877,10 +911,9 @@ window.calculateOracle = function() {
     invokeBtn.innerHTML = '<span class="spinner"></span> Forging your destiny...';
 
     try {
-        const birthDate = new Date(dobInput);
-        const birthYear = birthDate.getFullYear();
-        const birthMonth = birthDate.getMonth() + 1;
-        const birthDay = birthDate.getDate();
+        const birthYear = parseInt(dobYear, 10);
+        const birthMonth = parseInt(dobMonth, 10);
+        const birthDay = parseInt(dobDay, 10);
         const timeParts = tobInput.split(':');
         const birthHour = parseInt(timeParts[0]) || 12;
         const today = new Date();
@@ -888,15 +921,19 @@ window.calculateOracle = function() {
         const seed = Math.abs((birthYear * birthMonth * birthDay + nameInput.length) % 97) || 1;
 
         // Personal Year
-        const pyRaw = birthDay + birthMonth + 2026;
+        const pyRaw = birthDay + birthMonth + CURRENT_CYCLE_YEAR;
         const py = reduceToSingleDigit(pyRaw);
         setElementText('res-py', py);
+        setElementText('res-py-desc', `Your vibration for the ${CURRENT_CYCLE_YEAR} cycle.`);
         
-        const startOfYear = new Date(today.getFullYear(), 0, 0);
-        const diff = today - startOfYear;
         const oneDay = 1000 * 60 * 60 * 24;
+        const startOfYear = new Date(today.getFullYear(), 0, 0);
+        const startOfCurrentYear = new Date(today.getFullYear(), 0, 1);
+        const startOfNextYear = new Date(today.getFullYear() + 1, 0, 1);
+        const diff = today - startOfYear;
         const dayOfYear = Math.floor(diff / oneDay);
-        const yearProgress = (dayOfYear / 365) * 100;
+        const daysInYear = Math.round((startOfNextYear - startOfCurrentYear) / oneDay);
+        const yearProgress = (dayOfYear / daysInYear) * 100;
         const pyProgress = document.getElementById('py-progress');
         if (pyProgress) pyProgress.style.width = `${Math.min(100, yearProgress)}%`;
         
@@ -912,10 +949,12 @@ window.calculateOracle = function() {
         const elementStrengths = calculateWuXing(birthYear, birthMonth, birthDay, birthHour, gender);
         renderElements(elementStrengths);
         const dominantIdx = elementStrengths.indexOf(Math.max(...elementStrengths));
-        setElementText('dominant-element', `${ELEMENTS[dominantIdx].name} Dominant`);
+        const dominantElement = ELEMENTS[dominantIdx].name;
+        setElementText('dominant-element', `${dominantElement} Dominant`);
 
         // Zodiac
-        setElementText('res-western', getWesternZodiac(birthMonth, birthDay));
+        const westernSign = getWesternZodiac(birthMonth, birthDay);
+        setElementText('res-western', westernSign);
         const easternSign = getEasternZodiac(birthYear);
         setElementText('res-eastern', easternSign);
 
@@ -974,7 +1013,8 @@ window.calculateOracle = function() {
             timezoneDisplay.innerHTML = `<i class="fas fa-globe"></i> ${tzText}`;
         }
 
-        document.getElementById('results').classList.remove('hidden');
+        setResultsShell(nameInput, py, easternSign, luckyDir, dominantElement, westernSign);
+        showResultsState();
         
         setTimeout(() => {
             window.scrollTo({ 
@@ -1006,6 +1046,8 @@ window.calculateOracle = function() {
 // ========== INITIALIZATION ==========
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Arcana Studio Labs initialized - All fixes applied");
+    document.body.classList.remove('has-results');
+    setCycleYearLabels();
     
     // Initialize date dropdowns
     initDateDropdowns();

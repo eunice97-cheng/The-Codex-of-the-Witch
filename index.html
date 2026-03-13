@@ -12,6 +12,9 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="description"
+        content="Arcana Studio Labs presents The Codex of the Witch, a ceremonial oracle that maps your elemental balance, fortune, and current life cycle.">
+    <meta name="theme-color" content="#120c16">
     <title>Arcana Studio Labs | The Codex of the Witch</title>
 
     <!-- Tailwind & Fonts -->
@@ -22,51 +25,113 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="p-4 md:p-8">
+<body class="oracle-body p-4 md:p-8">
     <div class="stars"></div>
     <div class="twinkling"></div>
+    <div class="background-orbit orbit-one"></div>
+    <div class="background-orbit orbit-two"></div>
+    <div class="site-shell">
 
-    <header class="max-w-6xl mx-auto text-center mb-8 fade-in">
-        <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-3 drop-shadow-lg codex-title"
-            style="text-shadow: 0 0 20px rgba(245,158,11,0.3);">
-            ARCANA STUDIO LABS
-        </h1>
-
-        <div class="text-amber-400 text-sm md:text-base font-serif italic mb-3 tracking-wide">The Codex of the Witch
+    <header class="hero-shell mb-8 fade-in">
+        <div class="hero-atmosphere" aria-hidden="true">
+            <span class="hero-mist hero-mist-one"></span>
+            <span class="hero-mist hero-mist-two"></span>
+            <span class="hero-frost"></span>
+            <span class="hero-snow hero-snow-far"></span>
+            <span class="hero-snow hero-snow-near"></span>
         </div>
 
-        <div class="celestial-divider">
-            <i class="fas fa-star"></i>
-            <span class="text-purple-400 text-xs">THE CELESTIAL ALCHEMY — CARTOGRAPHY OF THE SOUL</span>
-            <i class="fas fa-star"></i>
-        </div>
+        <div class="hero-grid">
+            <div class="hero-copy">
+                <div class="hero-nameplate text-sky-300 text-sm md:text-base font-serif italic mb-3 tracking-wide">
+                    Arcana Studio Labs
+                </div>
 
-        <div class="logo-image">
-            <img src="logo.jpg" alt="Arcana Studio Labs Logo">
-        </div>
+                <h1 class="hero-title text-4xl md:text-6xl font-bold tracking-tighter text-white mb-3 codex-title">
+                    <span class="hero-title-main">The Codex</span>
+                    <span class="hero-title-minor">of the</span>
+                    <span class="hero-title-main">Witch</span>
+                </h1>
 
-        <div class="codex-quote-box">
-            <div class="codex-quote-text">
-                "Less than half of you is given at birth. The greater half is forged."
+                <div class="celestial-divider hero-divider">
+                    <i class="fas fa-star"></i>
+                    <span class="text-violet-300 text-xs">THE CELESTIAL ALCHEMY | CARTOGRAPHY OF THE SOUL</span>
+                    <i class="fas fa-star"></i>
+                </div>
+
+                <p class="hero-lead">
+                    A ceremonial oracle that reads your current cycle through elemental balance, lucky timing,
+                    directional guidance, and domain-specific prophecy.
+                </p>
+
+                <div class="badge-row">
+                    <span class="hero-badge"><i class="fas fa-wave-square"></i> Five-element profile</span>
+                    <span class="hero-badge"><i class="fas fa-hourglass-half"></i> Lucky-hour windows</span>
+                    <span class="hero-badge"><i class="fas fa-shield-heart"></i> In-browser reading</span>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#ritual-form" class="hero-btn hero-btn-primary">Begin the reading</a>
+                    <a href="#results-preview" class="hero-btn hero-btn-secondary">See the chamber</a>
+                </div>
             </div>
-            <div class="codex-attribution">
-                — THE CODEX OF THE WITCH
+
+            <div class="hero-stage-panel">
+                <div class="logo-image hero-logo">
+                    <img src="logo.jpg" alt="Arcana Studio Labs Logo">
+                </div>
+
+                <div class="codex-quote-box hero-quote">
+                    <div class="codex-quote-text">
+                        "Less than half of you is given at birth. The greater half is forged."
+                    </div>
+                    <div class="codex-attribution">
+                        - THE CODEX OF THE WITCH
+                    </div>
+                </div>
+
+                <div class="hero-stage-meta">
+                    <span><i class="fas fa-sparkles"></i> Ritual-grade reading</span>
+                    <span><i class="fas fa-lock"></i> Entirely in browser</span>
+                </div>
             </div>
+        </div>
+
+        <div class="hero-insight-grid">
+            <article class="hero-insight-card">
+                <span class="hero-insight-label">Output</span>
+                <strong>Elemental spectrum</strong>
+                <p>Read where your energy pools, where it overfires, and what needs grounding.</p>
+            </article>
+            <article class="hero-insight-card">
+                <span class="hero-insight-label">Guidance</span>
+                <strong>Prophecy by domain</strong>
+                <p>Switch between wealth, career, health, and love instead of reading one vague paragraph.</p>
+            </article>
+            <article class="hero-insight-card">
+                <span class="hero-insight-label">Timing</span>
+                <strong>Act at the right hour</strong>
+                <p>Your chart resolves into personal windows for focus, connection, and decisive work.</p>
+            </article>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <main class="page-grid">
 
         <!-- LEFT PANEL - INPUT SECTION -->
-        <section class="lg:col-span-4 space-y-6">
-            <div class="glass-panel p-8 rounded-3xl border-l-4 border-amber-500 fade-in">
-                <h2 class="text-xl text-white mb-6 font-serif tracking-wide">Celestial Identity</h2>
+        <section class="ritual-sidebar">
+            <div id="ritual-form" class="glass-panel ritual-panel p-8 rounded-3xl border-l-4 border-sky-500 fade-in">
+                <p class="panel-kicker">Ritual Intake</p>
+                <h2 class="text-xl text-white mb-2 font-serif tracking-wide">Celestial Identity</h2>
+                <p class="panel-subcopy">
+                    Feed the codex with your birth imprint. The reading is generated entirely in your browser.
+                </p>
                 <div class="space-y-5">
                     <!-- Full Name -->
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Full Name</label>
                         <input type="text" id="name" placeholder="Enter your complete name" value=""
-                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 transition text-white placeholder-slate-600">
+                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-sky-400 transition text-white placeholder-slate-600">
                     </div>
 
                     <!-- Birth Date - MOBILE FRIENDLY DROPDOWNS -->
@@ -74,11 +139,11 @@
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Birth Date</label>
                         <div class="grid grid-cols-3 gap-2">
                             <select id="dob-year"
-                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-sky-400 text-white text-sm">
                                 <option value="" disabled selected>Year</option>
                             </select>
                             <select id="dob-month"
-                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-sky-400 text-white text-sm">
                                 <option value="" disabled selected>Month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -94,7 +159,7 @@
                                 <option value="12">December</option>
                             </select>
                             <select id="dob-day"
-                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-sky-400 text-white text-sm">
                                 <option value="" disabled selected>Day</option>
                             </select>
                         </div>
@@ -104,7 +169,7 @@
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Birth Time</label>
                         <input type="time" id="tob" value=""
-                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 text-sm outline-none focus:border-amber-500 text-white [color-scheme:dark]">
+                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 text-sm outline-none focus:border-sky-400 text-white [color-scheme:dark]">
                     </div>
 
                     <!-- Gender & Relationship -->
@@ -112,7 +177,7 @@
                         <div>
                             <label class="text-[10px] uppercase tracking-widest text-slate-400">Gender</label>
                             <select id="gender"
-                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white">
+                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-sky-400 text-white">
                                 <option value="" disabled selected>Select gender</option>
                                 <option value="male">Male (Yang)</option>
                                 <option value="female">Female (Yin)</option>
@@ -121,7 +186,7 @@
                         <div>
                             <label class="text-[10px] uppercase tracking-widest text-slate-400">Relationship</label>
                             <select id="relationship"
-                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white">
+                                class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-sky-400 text-white">
                                 <option value="" disabled selected>Select status</option>
                                 <option value="single">Single</option>
                                 <option value="dating">Dating</option>
@@ -138,7 +203,7 @@
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Birth Country</label>
                         <select id="country"
-                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-sky-400 text-white text-sm">
                             <option value="" disabled selected>Select your birth country</option>
                             <option value="AF">Afghanistan</option>
                             <option value="AL">Albania</option>
@@ -342,7 +407,7 @@
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Timezone</label>
                         <select id="timezone"
-                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white text-sm">
+                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-sky-400 text-white text-sm">
                             <option value="" disabled selected>Select your timezone</option>
                             <optgroup label="UTC -12:00 to -09:00">
                                 <option value="-12">(UTC-12:00) Baker Island, Howland Island</option>
@@ -405,7 +470,7 @@
                     <div>
                         <label class="text-[10px] uppercase tracking-widest text-slate-400">Career Field</label>
                         <select id="career"
-                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-amber-500 text-white">
+                            class="w-full bg-slate-900/50 border-b-2 border-slate-700 p-3 outline-none focus:border-sky-400 text-white">
                             <option value="" disabled selected>Select your career field</option>
                             <option value="Technology">Technology / IT</option>
                             <option value="Finance">Finance / Banking</option>
@@ -433,71 +498,82 @@
                         </select>
                     </div>
 
-                    <button onclick="calculateOracle()" id="invokeBtn"
-                        class="w-full py-4 mt-4 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-bold rounded-xl transition-all shadow-lg shadow-amber-900/30 hover:shadow-amber-600/40 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
+                    <button type="button" onclick="calculateOracle()" id="invokeBtn"
+                        class="w-full py-4 mt-4 bg-gradient-to-r from-slate-700 via-sky-700 to-indigo-600 hover:from-slate-600 hover:via-sky-600 hover:to-indigo-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-slate-950/40 hover:shadow-sky-900/35 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
                         disabled>
                         <i class="fas fa-crystal-ball"></i>
                         <span>COMPLETE YOUR CELESTIAL IDENTITY</span>
                     </button>
-                    <p id="form-warning" class="text-[10px] text-amber-400/70 text-center mt-2">⚠️ All fields required
+                    <p id="form-warning" aria-live="polite" class="text-[10px] text-sky-300/70 text-center mt-2">⚠️ All fields required
                         to forge your reading</p>
                 </div>
-            </div>
 
-            <!-- FIRE HORSE 2026 CARD + MOON PHASE WIDGET -->
-            <div class="space-y-6">
-                <!-- Fire Horse 2026 Card -->
-                <a href="https://fengshui-witch.arcanastudiolabs.com" target="_blank"
-                    class="block glass-panel p-6 rounded-3xl text-center overflow-hidden relative fade-in group hover:border-amber-500/50 transition-all duration-300">
-                    <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <i class="fas fa-horse text-8xl text-amber-500"></i>
-                    </div>
-
-                    <!-- Image Container -->
-                    <div
-                        class="w-40 h-40 mx-auto mb-4 rounded-full bg-gradient-to-br from-amber-500/20 to-red-600/20 border-2 border-amber-500/30 overflow-hidden flex items-center justify-center group-hover:border-amber-400 transition-all shadow-lg shadow-amber-900/30">
-                        <img src="firehorse.PNG" alt="Fire Horse 2026" class="w-full h-full object-cover"
-                            onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-horse text-7xl text-amber-500/70\'></i>';">
-                    </div>
-
-                    <!-- Title -->
-                    <h3 class="text-2xl font-serif text-white mb-2 tracking-wide">Fire Horse of 2026</h3>
-
-                    <!-- Description -->
-                    <p class="text-sm text-slate-400 mb-4">The year of intense passion, transformation, and unstoppable
-                        energy.</p>
-
-                    <!-- CTA Button -->
-                    <div
-                        class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-bold rounded-xl transition-all shadow-lg shadow-amber-900/30 group-hover:shadow-amber-600/40">
-                        <i class="fas fa-compass"></i>
-                        <span>Explore the Feng Shui</span>
-                        <i
-                            class="fas fa-arrow-right text-sm opacity-70 group-hover:translate-x-1 transition-transform"></i>
-                    </div>
-
-                    <!-- Subtle decorative element -->
-                    <div
-                        class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-0 group-hover:opacity-30 transition-opacity">
-                    </div>
-                </a>
-
-                <!-- Moon Phase Widget (unchanged but moved inside) -->
-                <div id="moon-widget"
-                    class="glass-panel p-6 rounded-3xl text-center overflow-hidden relative fade-in opacity-50">
-                    <div class="absolute -right-4 -top-4 opacity-10">
-                        <i class="fas fa-moon text-8xl moon-ring text-amber-300"></i>
-                    </div>
-                    <h3 class="text-slate-400 text-xs uppercase tracking-widest mb-2">🌙 Current Lunar Phase</h3>
-                    <div id="moon-display" class="text-2xl text-white font-serif italic">--</div>
-                    <div id="moon-illumination" class="text-xs text-amber-400/80 mt-1"></div>
-                    <p id="moon-desc" class="text-xs text-slate-500 mt-2">Awaiting your cosmic identity...</p>
+                <div class="ritual-footnote">
+                    <span><i class="fas fa-lock"></i> No signup required</span>
+                    <span><i class="fas fa-clock"></i> About a minute to complete</span>
                 </div>
             </div>
         </section>
 
         <!-- RIGHT PANEL - RESULTS SECTION -->
-        <section id="results" class="lg:col-span-8 hidden space-y-8 fade-in">
+        <section class="ritual-stage">
+            <section id="results-preview" class="glass-panel results-preview fade-in">
+                <div class="results-preview-copy">
+                    <p class="panel-kicker">Before You Invoke</p>
+                    <h2 class="preview-title">This chamber is waiting for your map.</h2>
+                    <p class="preview-lead">
+                        Once your identity is complete, the codex resolves into an elemental spectrum, a fortune
+                        meter, a four-domain prophecy deck, your pillars, and the hours when your actions carry the
+                        strongest charge.
+                    </p>
+                </div>
+
+                <div class="preview-grid">
+                    <article class="preview-card">
+                        <span class="preview-card-label">01</span>
+                        <h3>Elemental balance</h3>
+                        <p>See which of the five elements dominates your chart and where to restore equilibrium.</p>
+                    </article>
+                    <article class="preview-card">
+                        <span class="preview-card-label">02</span>
+                        <h3>Practical prophecy</h3>
+                        <p>Switch between wealth, career, health, and love instead of reading one vague paragraph.</p>
+                    </article>
+                    <article class="preview-card">
+                        <span class="preview-card-label">03</span>
+                        <h3>Timing and counsel</h3>
+                        <p>Translate the reading into a lucky direction, supportive hours, and direct next-step advice.</p>
+                    </article>
+                </div>
+            </section>
+
+            <div id="moon-widget"
+                class="glass-panel p-6 rounded-3xl text-center overflow-hidden relative fade-in opacity-50">
+                <div class="absolute -right-4 -top-4 opacity-10">
+                    <i class="fas fa-moon text-8xl moon-ring text-sky-200"></i>
+                </div>
+                <h3 class="text-slate-400 text-xs uppercase tracking-widest mb-2">🌙 Current Lunar Phase</h3>
+                <div id="moon-display" class="text-2xl text-white font-serif italic">--</div>
+                <div id="moon-illumination" class="text-xs text-sky-300/80 mt-1"></div>
+                <p id="moon-desc" class="text-xs text-slate-500 mt-2">Awaiting your cosmic identity...</p>
+            </div>
+
+            <section id="results" class="results-panel hidden space-y-8 fade-in">
+                <div class="glass-panel results-hero rounded-3xl">
+                    <div class="results-hero-copy">
+                        <p class="panel-kicker">Destiny Reading</p>
+                        <h2 id="result-nameplate" class="results-hero-title">Awaiting your celestial identity</h2>
+                        <p id="result-snapshot" class="results-hero-summary">
+                            Complete the ritual intake to reveal your elemental map, current fortune, and practical
+                            guidance for the cycle ahead.
+                        </p>
+                    </div>
+                    <div class="results-hero-badges">
+                        <span id="result-badge-year" class="results-badge">Personal Year --</span>
+                        <span id="result-badge-sign" class="results-badge">Eastern Sign --</span>
+                        <span id="result-badge-direction" class="results-badge">Lucky Direction --</span>
+                    </div>
+                </div>
 
             <!-- TOP GRID - ELEMENTS & QUICK STATS -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -517,7 +593,7 @@
                 <!-- Quick Stats Grid -->
                 <div class="grid grid-cols-2 gap-4">
                     <div class="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center border-t-2 border-cyan-500 tooltip transition-all"
-                        data-tooltip="Your auspicious direction for 2026">
+                        data-tooltip="Your auspicious direction for the current cycle">
                         <span class="text-[10px] text-slate-500 uppercase flex items-center gap-1"><i
                                 class="fas fa-compass text-cyan-400"></i> Lucky Direction</span>
                         <span id="res-dir" class="text-xl text-cyan-400 font-bold">--</span>
@@ -632,13 +708,13 @@
                 <div
                     class="glass-panel p-6 rounded-3xl bg-gradient-to-br from-indigo-900/40 to-purple-900/40 border-t-2 border-indigo-500 flex flex-col justify-center">
                     <h3 class="text-indigo-400 text-xs uppercase tracking-widest mb-2 flex items-center gap-1">
-                        <i class="fas fa-star"></i> Personal Year 2026
+                        <i class="fas fa-star"></i> Personal Year <span id="cycle-year-card">2026</span>
                     </h3>
                     <div id="res-py" class="text-7xl font-bold text-white mb-1">--</div>
                     <div class="w-full bg-slate-800 h-1.5 rounded-full mt-2 mb-3">
                         <div id="py-progress" class="bg-indigo-500 h-1.5 rounded-full" style="width: 0%"></div>
                     </div>
-                    <p id="res-py-desc" class="text-xs text-slate-300">Your vibration for the 2026 cycle.</p>
+                    <p id="res-py-desc" class="text-xs text-slate-300">Your vibration for the current cycle.</p>
                     <div id="res-py-element" class="text-[10px] mt-2 text-indigo-300"></div>
                     <div id="relationship-display"
                         class="text-[10px] mt-3 pt-2 border-t border-indigo-800/50 text-indigo-300"></div>
@@ -697,17 +773,30 @@
         </section>
     </main>
 
-    <footer class="max-w-6xl mx-auto mt-16 text-center text-[10px] text-slate-700 uppercase tracking-widest">
-        <span>Arcana Studio Labs • The Codex of the Witch • 2026 Cycle</span>
+    <footer class="site-footer mt-16 text-center text-[10px] text-slate-700 uppercase tracking-widest">
+        <span>Arcana Studio Labs | The Codex of the Witch | <span id="footer-cycle-year">2026</span> Cycle</span>
     </footer>
 
     <!-- Floating Action Buttons -->
     <div class="floating-actions">
+        <a href="https://arcanastudiolabs.com/" class="floating-btn home-btn"
+            aria-label="Return to Arcana Studio Labs">
+            <i class="fas fa-house"></i>
+            <span class="floating-btn-label">Arcana Studio Labs</span>
+        </a>
+        <!-- Fire Horse 2026 -->
+        <a href="https://fengshui-witch.arcanastudiolabs.com" target="_blank" rel="noopener noreferrer"
+            class="floating-btn horse-btn" aria-label="Explore the Fire Horse 2026 Feng Shui guide">
+            <i class="fas fa-horse"></i>
+            <span class="floating-btn-label">Fire Horse 2026</span>
+        </a>
         <!-- Ko-fi Donation -->
         <a href="https://ko-fi.com/eunicecheng" target="_blank" rel="noopener noreferrer"
             class="floating-btn kofi-btn" aria-label="Support on Ko-fi">
-            <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi" class="kofi-icon">
-            <span class="floating-btn-label">Support me</span>
+            <span class="kofi-icon-shell" aria-hidden="true">
+                <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="" class="kofi-icon">
+            </span>
+            <span class="floating-btn-label">Support on Ko-fi</span>
         </a>
         <!-- Discord -->
         <a href="https://discord.com/users/909063517280296961" target="_blank" rel="noopener noreferrer"
@@ -719,6 +808,7 @@
 
     <!-- JS -->
     <script src="script.js"></script>
+    </div>
 </body>
 
 </html>
